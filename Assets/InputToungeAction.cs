@@ -84,7 +84,7 @@ public class InputToungeAction : MonoBehaviour {
         toungeFrontObj.GetComponent<ToungeFront>().onHitLeafAction = () =>
         {
             isLeafTouch = true;
-            toungeFrontObj.GetComponent<ToungeFront>().power = 2 + pushTime * 10f;
+            toungeFrontObj.GetComponent<ToungeFront>().power = 8 + pushTime * 10f;
         };
         if (playerType == PlayerEnum.Player1)
         {

@@ -23,7 +23,7 @@ public class PlayerHitpoint : MonoBehaviour {
         if(col.tag == "Water")
         {
             transform.position = new Vector3(0.0f, 0.0f, 0.0f);
-
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             //hitPoint -= 1;
             //Destroy(Heart[hitPoint]);
 
