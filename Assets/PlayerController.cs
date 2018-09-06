@@ -13,13 +13,14 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         rb2D = GetComponent<Rigidbody2D>();
+        Debug.Log(Input.GetJoystickNames()[1]);
     }
 	
 	// Update is called once per frame
 	void Update () {
         Vector2 newVel = new Vector2(0,0);
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxis("Horizontal1");
+        float y = Input.GetAxis("Vertical1");
         if (x>0)
         {
             newVel.x += moveSpeed;
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Leaf")
         {
-            Debug.Log("on leave");
+            //Debug.Log("on leave");
             ableToJump = true;
         }
     }
