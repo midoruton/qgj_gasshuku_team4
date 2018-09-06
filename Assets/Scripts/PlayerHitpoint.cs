@@ -22,15 +22,16 @@ public class PlayerHitpoint : MonoBehaviour {
     {
         if(col.tag == "Water")
         {
-            hitPoint -= 1;
-            Destroy(Heart[hitPoint]);
             transform.position = new Vector3(0.0f, 0.0f, 0.0f);
 
+            //hitPoint -= 1;
+            //Destroy(Heart[hitPoint]);
 
-            if(hitPoint == 0)
-            {
-                Destroy(gameObject);
-            }
+
+            //if(hitPoint == 0)
+            //{
+            //    Destroy(gameObject);
+            //}
         }
     }
 }

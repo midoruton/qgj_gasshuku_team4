@@ -104,6 +104,7 @@ public class InputToungeAction : MonoBehaviour {
         if(Vector2.Angle(normVec,inputVec)<ikichi){
             inputVec = normVec;
         }
+        inputVec = normVec;
         float time = 0f;
         while(time <=toungeTime&&!isLeafTouch){
             toungeRigid.transform.Translate(inputVec.normalized * toungeSpeed,Space.Self);
@@ -112,7 +113,7 @@ public class InputToungeAction : MonoBehaviour {
         }
 
         toungeFrontObj.GetComponent<Collider2D>().isTrigger = true;
-        while((this.transform.position-toungeFrontObj.transform.position).magnitude>0.1f){
+        while((this.transform.position-toungeFrontObj.transform.position).magnitude>0.4f){
             toungeRigid.transform.Translate((this.transform.position-toungeFrontObj.transform.position).normalized * toungeBackSpeed, Space.Self);
             yield return new WaitForFixedUpdate();
         }
