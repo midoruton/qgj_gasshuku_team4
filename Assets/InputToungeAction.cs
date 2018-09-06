@@ -19,6 +19,7 @@ public class InputToungeAction : MonoBehaviour {
     private float pushTime = 0f;
 
     public Action pushAction;
+    public Action toungeBeforeAction;
 	// Use this for initialization
 	void Start () {
         toungeRigid = toungeFrontObj.GetComponent<Rigidbody2D>();
@@ -48,7 +49,8 @@ public class InputToungeAction : MonoBehaviour {
 	}
 
     private IEnumerator WaitPushCoroutine(){
-        
+
+        toungeBeforeAction();
         pushTime = 0f;
         while(pushTime<=1f){
             if (playerType == PlayerEnum.Player1)
