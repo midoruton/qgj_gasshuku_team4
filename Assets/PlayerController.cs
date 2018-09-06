@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rb2D;
     private bool ableToJump = false;
+    private Foot foot;
 
     // Use this for initialization
     void Start() {
         rb2D = GetComponent<Rigidbody2D>();
+        foot = transform.Find("Foot").GetComponent<Foot>();
     }
 	
 	// Update is called once per frame
@@ -31,11 +33,12 @@ public class PlayerController : MonoBehaviour {
         if (ableToJump&&y>0)
         {
             newVel.y = jumpSpeed;
+            ableToJump = false;
         }
         newVel.y += rb2D.velocity.y;
         rb2D.velocity = newVel;
 	}
-
+    /*
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Leaf")
@@ -51,5 +54,5 @@ public class PlayerController : MonoBehaviour {
         {
             ableToJump = false;
         }
-    }
+    }*/
 }
