@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Leaf
   - Wall
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - FrogB
   - FootA
   - FootB
-  - 
+  - Leaf
   - 
   - 
   - 

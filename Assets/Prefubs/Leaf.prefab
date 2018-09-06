@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4269032480404170}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,8 +37,8 @@ GameObject:
   - component: {fileID: 212223035631104018}
   - component: {fileID: 61105450272830664}
   - component: {fileID: 50675112622995218}
-  - component: {fileID: 114912329436712668}
-  m_Layer: 0
+  - component: {fileID: 114054402621691686}
+  m_Layer: 13
   m_Name: Leaf
   m_TagString: Leaf
   m_Icon: {fileID: 0}
@@ -64,9 +64,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1749733447865820}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.1, y: -6.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3.14, y: 3.14, z: 1}
   m_Children:
   - {fileID: 4269032480404170}
   m_Father: {fileID: 0}
@@ -115,9 +115,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 1.46, y: 0.45}
   m_EdgeRadius: 0
---- !u!114 &114912329436712668
+--- !u!114 &114054402621691686
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
