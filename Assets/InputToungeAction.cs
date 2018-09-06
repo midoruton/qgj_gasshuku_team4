@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
 public class InputToungeAction : MonoBehaviour {
 
     [SerializeField] private PlayerEnum playerType;
@@ -11,11 +12,13 @@ public class InputToungeAction : MonoBehaviour {
     [SerializeField] private GameObject toungeFrontObj;
     [SerializeField] private PlayerController enemy;
     [SerializeField] private float ikichi = 20f;
-    private Coroutine toungeCoroutine = null;
+    public Coroutine toungeCoroutine = null;
     private Coroutine waitPushCorotuine = null;
     private Rigidbody2D toungeRigid;
 
     private float pushTime = 0f;
+
+    public Action pushAction;
 	// Use this for initialization
 	void Start () {
         toungeRigid = toungeFrontObj.GetComponent<Rigidbody2D>();
@@ -45,6 +48,7 @@ public class InputToungeAction : MonoBehaviour {
 	}
 
     private IEnumerator WaitPushCoroutine(){
+        
         pushTime = 0f;
         while(pushTime<=1f){
             if (playerType == PlayerEnum.Player1)
@@ -71,6 +75,7 @@ public class InputToungeAction : MonoBehaviour {
     }
 
     private IEnumerator ToungeCorotine(){
+        if (pushAction != null) pushAction();
         ResetTounge();
         Vector2 inputVec = Vector2.zero;
         bool isLeafTouch = false;
@@ -108,7 +113,7 @@ public class InputToungeAction : MonoBehaviour {
 
         toungeFrontObj.GetComponent<Collider2D>().isTrigger = true;
         while((this.transform.position-toungeFrontObj.transform.position).magnitude>0.1f){
-            toungeRigid.transform.Translate(-1f*inputVec.normalized * toungeBackSpeed, Space.Self);
+            toungeRigid.transform.Translate((this.transform.position-toungeFrontObj.transform.position).normalized * toungeBackSpeed, Space.Self);
             yield return new WaitForFixedUpdate();
         }
 

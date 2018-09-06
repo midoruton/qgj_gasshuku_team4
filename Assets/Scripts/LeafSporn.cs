@@ -12,6 +12,7 @@ public class LeafSporn : MonoBehaviour {
 	void Start ()
     {
         _timer = 0.0f;
+        Instantiate(Leaf, new Vector2(Random.Range(-6.0f, 6.0f), 15.0f), transform.rotation);
 	}
 	
 	// Update is called once per frame
@@ -19,7 +20,7 @@ public class LeafSporn : MonoBehaviour {
     {
         if(_timer >= timespan)
         {
-            Instantiate(Leaf,new Vector2(Random.Range(-10.0f,10.0f),20.0f),transform.rotation);
+            Instantiate(Leaf,new Vector2(Random.Range(-6.0f,6.0f),15.0f),transform.rotation);
             _timer = 0.0f;
         }
 

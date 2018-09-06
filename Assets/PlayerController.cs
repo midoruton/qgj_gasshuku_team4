@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
     public float jumpSpeed;
     public float wallJumpReaction;
 
+
+    public Action JumpAction;
     public PlayerEnum playerType;
     enum State
     {
@@ -21,7 +23,7 @@ public class PlayerController : MonoBehaviour {
     private bool ableToJump = false;
     private bool ableToWallJump = false;
     private int jumpCount = 0;
-    private Foot foot;
+    public Foot foot;
     private WallSensor ws;
 
 
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour {
             newVel.y = jumpSpeed;
             jumpCount++;
             ableToJump = false;
+            if (JumpAction != null) JumpAction();
         }
         //newVel.y += rb2D.velocity.y;
         rb2D.velocity = newVel;
