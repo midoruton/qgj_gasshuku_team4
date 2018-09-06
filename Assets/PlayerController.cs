@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.transform.parent.name == "Leaves")
+        if(collision.gameObject.tag == "Leaf")
         {
             Debug.Log("on leave");
             ableToJump = true;
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.transform.parent.name == "Leaves")
+        if (collision.gameObject.tag == "Leaf")
         {
             ableToJump = false;
         }
