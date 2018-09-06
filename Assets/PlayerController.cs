@@ -18,15 +18,17 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector2 newVel = new Vector2(0,0);
-        if (Input.GetKey(KeyCode.D))
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+        if (x>0)
         {
             newVel.x += moveSpeed;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (x<0)
         {
             newVel.x += -moveSpeed;
         }
-        if (ableToJump&&Input.GetKeyDown(KeyCode.W))
+        if (ableToJump&&y>0)
         {
             newVel.y = jumpSpeed;
         }
