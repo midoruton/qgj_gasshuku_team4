@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 212401763385127408}
   - component: {fileID: 114288705965808030}
   - component: {fileID: 114061227723091574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Frog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toungeSpeed: 10
   toungeTime: 2
-  keyCodeTounge: 0
+  keyCodeTounge: 32
   toungeFrontObj: {fileID: 1555490762313576}
 --- !u!114 &114288705965808030
 MonoBehaviour:
