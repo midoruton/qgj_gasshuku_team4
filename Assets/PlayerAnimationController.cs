@@ -30,12 +30,19 @@ public class PlayerAnimationController : MonoBehaviour {
             isJumpPush = true;
         };
 
+
+        inputTongue.toungeBeforeAction = () =>
+        {
+            isToungePush = true;
+            animator.Play("TongeBefore");
+        };
         inputTongue.pushAction = () =>
         {
             isToungePush = true;
             Invoke("SetToungePushFalse", 0.1f);
             animator.Play("Tounge");
         };
+
     }
 
 
@@ -74,15 +81,13 @@ public class PlayerAnimationController : MonoBehaviour {
 
             if (!playerController.foot.OnLeaf&&rigid.velocity.y<-0.1f)
             {
-                animator.Play("JumpDown");
+                animator.Play("JumpUp");
                 isJumping = true;
                 isWalking = false;
             }
         }else {
             
-            if(rigid.velocity.y<-0.1f){
-                animator.Play("JumpDown");
-            }
+
 
             if (isJumpPush)
             {

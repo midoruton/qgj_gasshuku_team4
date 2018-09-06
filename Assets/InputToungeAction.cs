@@ -19,6 +19,7 @@ public class InputToungeAction : MonoBehaviour {
     private float pushTime = 0f;
 
     public Action pushAction;
+    public Action toungeBeforeAction;
 	// Use this for initialization
 	void Start () {
         toungeRigid = toungeFrontObj.GetComponent<Rigidbody2D>();
@@ -48,7 +49,8 @@ public class InputToungeAction : MonoBehaviour {
 	}
 
     private IEnumerator WaitPushCoroutine(){
-        
+
+        toungeBeforeAction();
         pushTime = 0f;
         while(pushTime<=1f){
             if (playerType == PlayerEnum.Player1)
@@ -82,7 +84,7 @@ public class InputToungeAction : MonoBehaviour {
         toungeFrontObj.GetComponent<ToungeFront>().onHitLeafAction = () =>
         {
             isLeafTouch = true;
-            toungeFrontObj.GetComponent<ToungeFront>().power = 2 + pushTime * 10f;
+            toungeFrontObj.GetComponent<ToungeFront>().power = 8 + pushTime * 10f;
         };
         if (playerType == PlayerEnum.Player1)
         {
@@ -104,6 +106,7 @@ public class InputToungeAction : MonoBehaviour {
         if(Vector2.Angle(normVec,inputVec)<ikichi){
             inputVec = normVec;
         }
+        inputVec = normVec;
         float time = 0f;
         while(time <=toungeTime&&!isLeafTouch){
             toungeRigid.transform.Translate(inputVec.normalized * toungeSpeed,Space.Self);
@@ -112,7 +115,7 @@ public class InputToungeAction : MonoBehaviour {
         }
 
         toungeFrontObj.GetComponent<Collider2D>().isTrigger = true;
-        while((this.transform.position-toungeFrontObj.transform.position).magnitude>0.1f){
+        while((this.transform.position-toungeFrontObj.transform.position).magnitude>0.4f){
             toungeRigid.transform.Translate((this.transform.position-toungeFrontObj.transform.position).normalized * toungeBackSpeed, Space.Self);
             yield return new WaitForFixedUpdate();
         }

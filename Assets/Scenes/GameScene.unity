@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -189,6 +189,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &198909444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114288705965808030, guid: 307108846b6554f4395ac1921b199b95,
+    type: 2}
+  m_PrefabInternal: {fileID: 1952868730}
+  m_Script: {fileID: 11500000, guid: 3380a47040d04e94cb974b0eccbd9dcc, type: 3}
 --- !u!1 &202074303
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +334,7 @@ Transform:
   - {fileID: 1189673394}
   - {fileID: 449944300}
   - {fileID: 202074304}
+  - {fileID: 1821023165}
   m_Father: {fileID: 913788695}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -665,8 +672,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 568707957
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f8fad2a997c9134286dd0900a466af6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1139,8 +1146,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
         type: 2}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 198909444}
+    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
+        type: 2}
+      propertyPath: toungeSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
+        type: 2}
       propertyPath: toungeTime
-      value: 0.04
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307108846b6554f4395ac1921b199b95, type: 2}
@@ -1210,8 +1227,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 568707957
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f8fad2a997c9134286dd0900a466af6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1487,6 +1504,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1693893088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114288705965808030, guid: 307108846b6554f4395ac1921b199b95,
+    type: 2}
+  m_PrefabInternal: {fileID: 1176472035}
+  m_Script: {fileID: 11500000, guid: 3380a47040d04e94cb974b0eccbd9dcc, type: 3}
 --- !u!1 &1754629260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,6 +1633,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallspeed: 0.3
+--- !u!1 &1821023164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821023165}
+  - component: {fileID: 1821023166}
+  m_Layer: 0
+  m_Name: ceiling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1821023165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821023164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 8.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 318680988}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1821023166
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821023164}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 17.91, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1900359428
 Prefab:
   m_ObjectHideFlags: 0
@@ -1717,8 +1794,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 568707957
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f8fad2a997c9134286dd0900a466af6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1740,7 +1817,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4268545044147940, guid: 307108846b6554f4395ac1921b199b95, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.08
       objectReference: {fileID: 0}
     - target: {fileID: 4268545044147940, guid: 307108846b6554f4395ac1921b199b95, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1841,6 +1918,31 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
+        type: 2}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1693893088}
+    - target: {fileID: 212401763385127408, guid: 307108846b6554f4395ac1921b199b95,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673666116720126, guid: 307108846b6554f4395ac1921b199b95, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95466572860716620, guid: 307108846b6554f4395ac1921b199b95,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b8cb8c27cfa8c49e2a384eb150612485, type: 2}
+    - target: {fileID: 212401763385127408, guid: 307108846b6554f4395ac1921b199b95,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f32bb6b09b17d464ea793475596ce294,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307108846b6554f4395ac1921b199b95, type: 2}
   m_IsPrefabAsset: 0
