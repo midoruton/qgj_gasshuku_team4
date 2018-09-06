@@ -6,7 +6,6 @@ public class InputToungeAction : MonoBehaviour {
 
     [SerializeField] private float toungeSpeed = 5f;
     [SerializeField] private float toungeTime = 2f;
-    [SerializeField] private KeyCode keyCodeTounge;
     [SerializeField] private GameObject toungeFrontObj;
     private Coroutine toungeCoroutine = null;
     private Rigidbody2D toungeRigid;
@@ -20,7 +19,9 @@ public class InputToungeAction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(keyCodeTounge)) {
+        
+        if (Input.GetButtonDown("Tounge")) {
+            
             if (toungeCoroutine != null)
             {
                 StopCoroutine(toungeCoroutine);
@@ -32,6 +33,7 @@ public class InputToungeAction : MonoBehaviour {
     private IEnumerator ToungeCorotine(){
         ResetTounge();
         var inputVec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Debug.Log(inputVec);
         toungeRigid.velocity = inputVec.normalized * toungeSpeed;
         yield return new WaitForSecondsRealtime(toungeTime);
         ResetTounge();
