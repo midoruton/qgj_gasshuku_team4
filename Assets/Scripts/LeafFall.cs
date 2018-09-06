@@ -27,7 +27,7 @@ public class LeafFall : MonoBehaviour {
     {
         if(col.tag == "Water")
         {
-            fallSpeed = 0.2f;
+            fallSpeed = 0.1f;
             Destroy(gameObject, _time);
         }
     }
@@ -36,7 +36,7 @@ public class LeafFall : MonoBehaviour {
     {
         if(col.tag == "Water")
         {
-            float angle = Mathf.LerpAngle(0f, 30.0f, _timer * 0.05f);
+            float angle = Mathf.LerpAngle(0f, 45.0f, _timer * 0.05f);
             transform.eulerAngles = new Vector3(0, 0, angle * _offset);
             _timer += Time.deltaTime;
         }
