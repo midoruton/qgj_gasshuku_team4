@@ -32,8 +32,9 @@ public class InputToungeAction : MonoBehaviour {
     private IEnumerator ToungeCorotine(){
         ResetTounge();
         var inputVec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        toungeRigid.velocity = inputVec * toungeSpeed;
+        toungeRigid.velocity = inputVec.normalized * toungeSpeed;
         yield return new WaitForSecondsRealtime(toungeTime);
+        ResetTounge();
         toungeCoroutine = null;
     }
 
