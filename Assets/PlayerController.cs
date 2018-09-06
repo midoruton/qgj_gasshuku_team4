@@ -6,16 +6,29 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
     public float jumpSpeed;
+    public float wallJumpReaction;
 
     public PlayerEnum playerType;
+    enum State
+    {
+        OnLeaf,
+        Flying,
+        OnLeftWall,
+        OnRightWall,
+    }
+    private State st = State.Flying;
     private Rigidbody2D rb2D;
     private bool ableToJump = false;
+    private bool ableToWallJump = false;
+    private int jumpCount = 0;
     private Foot foot;
+    private WallSensor ws;
 
     // Use this for initialization
     void Start() {
         rb2D = GetComponent<Rigidbody2D>();
         foot = transform.Find("Foot").GetComponent<Foot>();
+        ws = transform.Find("WallSensor").GetComponent<WallSensor>();
     }
 	
 	// Update is called once per frame
@@ -39,15 +52,26 @@ public class PlayerController : MonoBehaviour {
         {
             newVel.x += -moveSpeed;
         }
-        ableToJump = foot.OnLeaf;
+
+        if ((jumpCount == 0 && foot.OnLeaf) || (jumpCount == 1 && ws.OnWall))
+        {
+            ableToJump = true;
+        }
+
         if (ableToJump&&y<0)
         {
             newVel.y = jumpSpeed;
+            jumpCount++;
             ableToJump = false;
         }
         newVel.y += rb2D.velocity.y;
         rb2D.velocity = newVel;
-	}
+
+        if (jumpCount >= 1 && foot.OnLeaf && rb2D.velocity.y<=0)
+        {
+            jumpCount = 0;
+        }
+    }
     /*
     private void OnCollisionStay2D(Collision2D collision)
     {
