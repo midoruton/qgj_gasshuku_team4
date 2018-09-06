@@ -77,6 +77,7 @@ public class InputToungeAction : MonoBehaviour {
         toungeFrontObj.GetComponent<ToungeFront>().onHitLeafAction = () =>
         {
             isLeafTouch = true;
+            toungeFrontObj.GetComponent<ToungeFront>().power = 2 + pushTime * 10f;
         };
         if (playerType == PlayerEnum.Player1)
         {
@@ -104,12 +105,13 @@ public class InputToungeAction : MonoBehaviour {
             yield return new  WaitForFixedUpdate();
             time += Time.fixedDeltaTime;
         }
-        toungeFrontObj.GetComponent<ToungeFront>().power = 2 + pushTime * 10f;
+
         toungeFrontObj.GetComponent<Collider2D>().isTrigger = true;
         while((this.transform.position-toungeFrontObj.transform.position).magnitude>0.1f){
             toungeRigid.transform.Translate(-1f*inputVec.normalized * toungeBackSpeed, Space.Self);
             yield return new WaitForFixedUpdate();
         }
+
         ResetTounge();
         toungeCoroutine = null;
     }
@@ -119,5 +121,6 @@ public class InputToungeAction : MonoBehaviour {
         toungeRigid.velocity = Vector2.zero;
         toungeFrontObj.transform.position = this.transform.position;
         toungeFrontObj.GetComponent<Collider2D>().isTrigger = false;
+        toungeFrontObj.GetComponent<ToungeFront>().power = 2;
     }
 }
