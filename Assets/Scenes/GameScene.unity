@@ -1257,61 +1257,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
         type: 2}
-      propertyPath: toungeTime
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
-        type: 2}
-      propertyPath: playerType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114288705965808030, guid: 307108846b6554f4395ac1921b199b95,
-        type: 2}
-      propertyPath: playerType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1264141466560900, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1205488340970556, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1239637647868786, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1334877447302340, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770969654762162, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1555490762313576, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1673666116720126, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1669357275487030, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
-        type: 2}
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1174325543}
-    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
-        type: 2}
-      propertyPath: ikichi
-      value: 45
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307108846b6554f4395ac1921b199b95, type: 2}
   m_IsPrefabAsset: 0

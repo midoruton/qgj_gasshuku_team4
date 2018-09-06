@@ -25,7 +25,7 @@ public class ToungeSpriteMgr : MonoBehaviour {
         spriteObj.transform.up = toungeFrontObj.transform.position - this.transform.position;
 
         var diff = (toungeFrontObj.transform.position - this.transform.position).magnitude;
-        toungeSpriteRenderer.size = new Vector2(defaultSize.x, diff*10f);
+        toungeSpriteRenderer.size = new Vector2(defaultSize.x, diff);
         objRefPos.transform.localPosition = (toungeFrontObj.transform.position - this.transform.position) / 2f;
 	}
 }
