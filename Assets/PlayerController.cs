@@ -9,18 +9,19 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rb2D;
     private bool ableToJump = false;
+    private Foot foot;
 
     // Use this for initialization
     void Start() {
         rb2D = GetComponent<Rigidbody2D>();
-        Debug.Log(Input.GetJoystickNames()[1]);
+        foot = transform.Find("Foot").GetComponent<Foot>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         Vector2 newVel = new Vector2(0,0);
-        float x = Input.GetAxis("Horizontal1");
-        float y = Input.GetAxis("Vertical1");
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
         if (x>0)
         {
             newVel.x += moveSpeed;
@@ -32,16 +33,17 @@ public class PlayerController : MonoBehaviour {
         if (ableToJump&&y>0)
         {
             newVel.y = jumpSpeed;
+            ableToJump = false;
         }
         newVel.y += rb2D.velocity.y;
         rb2D.velocity = newVel;
 	}
-
+    /*
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Leaf")
         {
-            //Debug.Log("on leave");
+            Debug.Log("on leave");
             ableToJump = true;
         }
     }
@@ -52,5 +54,5 @@ public class PlayerController : MonoBehaviour {
         {
             ableToJump = false;
         }
-    }
+    }*/
 }
