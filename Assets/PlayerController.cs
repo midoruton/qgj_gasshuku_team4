@@ -33,38 +33,56 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector2 newVel = new Vector2(0,0);
+        Vector2 newVel = new Vector2(rb2D.velocity.x,rb2D.velocity.y);
         float x = 0;
         float y = 0;
+        bool isJumpPushed = false;
         if (playerType == PlayerEnum.Player1)
         {
             x = Input.GetAxis("Horizontal1");
             y = Input.GetAxis("Vertical1");
+
+            if (Input.GetButtonDown("Jump1"))
+            {
+                isJumpPushed = true;
+            }
         }else{
             x = Input.GetAxis("Horizontal2");
             y = Input.GetAxis("Vertical2");
+            if(Input.GetButtonDown("Jump2"))
+            {
+                isJumpPushed = true;
+            }
         }
-        if (x>0)
-        {
-            newVel.x += moveSpeed;
-        }
-        if (x<0)
-        {
-            newVel.x += -moveSpeed;
+
+        if (foot.OnLeaf) {
+            if (x>0)
+            {
+                newVel.x = moveSpeed;
+            }
+            if (x<0)
+            {
+                newVel.x = -moveSpeed;
+            }
+            if (x == 0)
+            {
+                newVel.x = 0;
+            }
         }
 
         if ((jumpCount == 0 && foot.OnLeaf) || (jumpCount == 1 && ws.OnWall))
         {
             ableToJump = true;
-        }
+        } 
 
-        if (ableToJump&&y<0)
+        if (ableToJump&&isJumpPushed)
         {
+            newVel.x = x*jumpSpeed;
             newVel.y = jumpSpeed;
             jumpCount++;
             ableToJump = false;
         }
-        newVel.y += rb2D.velocity.y;
+        //newVel.y += rb2D.velocity.y;
         rb2D.velocity = newVel;
 
         if (jumpCount >= 1 && foot.OnLeaf && rb2D.velocity.y<=0)
