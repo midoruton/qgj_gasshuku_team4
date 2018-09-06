@@ -284,9 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e403098a531c43ee8bbdf8306b34b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toungeSpeed: 10
-  toungeTime: 2
-  keyCodeTounge: 32
+  toungeSpeed: 0.2
+  toungeTime: 1
   toungeFrontObj: {fileID: 1555490762313576}
 --- !u!114 &114288705965808030
 MonoBehaviour:

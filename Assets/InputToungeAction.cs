@@ -22,20 +22,29 @@ public class InputToungeAction : MonoBehaviour {
         
         if (Input.GetButtonDown("Tounge")) {
             
-            if (toungeCoroutine != null)
+            if (toungeCoroutine == null)
             {
-                StopCoroutine(toungeCoroutine);
+                toungeCoroutine = StartCoroutine(ToungeCorotine());
             }
-            toungeCoroutine = StartCoroutine(ToungeCorotine());
+
         }
 	}
 
     private IEnumerator ToungeCorotine(){
         ResetTounge();
         var inputVec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        Debug.Log(inputVec);
-        toungeRigid.velocity = inputVec.normalized * toungeSpeed;
-        yield return new WaitForSecondsRealtime(toungeTime);
+        float time = 0f;
+        while(time <=toungeTime){
+            toungeRigid.transform.Translate(inputVec.normalized * toungeSpeed,Space.Self);
+            yield return new  WaitForFixedUpdate();
+            time += Time.fixedDeltaTime;
+        }
+        time = 0f;
+        while(time <=toungeTime){
+            toungeRigid.transform.Translate(-1f*inputVec.normalized * toungeSpeed, Space.Self);
+            yield return new WaitForFixedUpdate();
+            time += Time.fixedDeltaTime;
+        }
         ResetTounge();
         toungeCoroutine = null;
     }
