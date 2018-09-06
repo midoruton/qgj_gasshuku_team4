@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputToungeAction : MonoBehaviour {
 
+    [SerializeField] private PlayerEnum playerType;
     [SerializeField] private float toungeSpeed = 5f;
     [SerializeField] private float toungeTime = 2f;
     [SerializeField] private GameObject toungeFrontObj;
@@ -20,7 +21,21 @@ public class InputToungeAction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        if (Input.GetButtonDown("Tounge")) {
+        bool isPushed = false;
+        if (playerType == PlayerEnum.Player1)
+        {
+            if (Input.GetButtonDown("Tounge1"))
+            {
+                isPushed = true;
+            }
+        }
+        else{
+            if (Input.GetButtonDown("Tounge2"))
+            {
+                isPushed = true;
+            }
+        }
+        if (isPushed) {
             
             if (toungeCoroutine == null)
             {
@@ -32,7 +47,13 @@ public class InputToungeAction : MonoBehaviour {
 
     private IEnumerator ToungeCorotine(){
         ResetTounge();
-        var inputVec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 inputVec = Vector2.zero;
+        if (playerType == PlayerEnum.Player1)
+        {
+            inputVec = new Vector2(Input.GetAxis("Horizontal1"), -1f*Input.GetAxis("Vertical1"));
+        }else{
+            inputVec = new Vector2(Input.GetAxis("Horizontal2"), -1f*Input.GetAxis("Vertical2"));
+        }
         float time = 0f;
         while(time <=toungeTime){
             toungeRigid.transform.Translate(inputVec.normalized * toungeSpeed,Space.Self);
