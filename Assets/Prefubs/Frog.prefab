@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4753792509236596}
   - component: {fileID: 61140589569201688}
   - component: {fileID: 114904550558858532}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 4557080005051186}
   - component: {fileID: 50583482686971792}
   - component: {fileID: 58984744991205780}
+  - component: {fileID: 114122923450969514}
   m_Layer: 9
   m_Name: ToungeFront
   m_TagString: Untagged
@@ -240,7 +241,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4e9a82c0965624c7aa1345bed25a2cb0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -341,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e403098a531c43ee8bbdf8306b34b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerType: 0
   toungeSpeed: 0.2
   toungeTime: 1
   toungeFrontObj: {fileID: 1555490762313576}
@@ -360,6 +362,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &114122923450969514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555490762313576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f292a2745aa4a15958d3a9acfdf0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114288705965808030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,6 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpSpeed: 4.5
+  playerType: 0
 --- !u!114 &114407916608650274
 MonoBehaviour:
   m_ObjectHideFlags: 1
