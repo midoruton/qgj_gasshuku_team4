@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
     public float jumpSpeed;
 
+    public PlayerEnum playerType;
     private Rigidbody2D rb2D;
     private bool ableToJump = false;
     private Foot foot;
@@ -20,8 +21,16 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector2 newVel = new Vector2(0,0);
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = 0;
+        float y = 0;
+        if (playerType == PlayerEnum.Player1)
+        {
+            x = Input.GetAxis("Horizontal1");
+            y = Input.GetAxis("Vertical1");
+        }else{
+            x = Input.GetAxis("Horizontal2");
+            y = Input.GetAxis("Vertical2");
+        }
         if (x>0)
         {
             newVel.x += moveSpeed;
