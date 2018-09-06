@@ -16,21 +16,29 @@ public class Foot : MonoBehaviour {
         
     }
 
+    public bool HitOnLeaf
+    {
+        get
+        {
+            return hitOnLeaf;
+        }
+    }
+
     // Use this for initialization
     void Start () {
 		
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Leaf")
+        if(collision.gameObject.tag == "Leaf")
         {
             onLeaf = true;
             hitOnLeaf = true;
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Leaf")
         {
@@ -38,8 +46,8 @@ public class Foot : MonoBehaviour {
             hitOnLeaf = false;
         }
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
+    
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Leaf")
         {
