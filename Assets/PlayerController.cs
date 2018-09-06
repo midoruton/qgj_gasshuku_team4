@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+        Debug.Log(foot.OnLeaf);
         if (foot.OnLeaf) {
             if (x>0)
             {
