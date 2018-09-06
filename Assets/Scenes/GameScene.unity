@@ -1166,6 +1166,11 @@ Prefab:
       propertyPath: m_Name
       value: FrogA
       objectReference: {fileID: 0}
+    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
+        type: 2}
+      propertyPath: toungeTime
+      value: 0.04
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307108846b6554f4395ac1921b199b95, type: 2}
   m_IsPrefabAsset: 0
@@ -1696,6 +1701,11 @@ Prefab:
     - target: {fileID: 1669357275487030, guid: 307108846b6554f4395ac1921b199b95, type: 2}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 50282210898427602, guid: 307108846b6554f4395ac1921b199b95,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307108846b6554f4395ac1921b199b95, type: 2}

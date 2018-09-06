@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Foot : MonoBehaviour {
 
-    private bool onLeaf = false;
+    [SerializeField]private bool onLeaf = false;
     private bool hitOnLeaf = false;
 
     public bool OnLeaf

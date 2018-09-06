@@ -5,11 +5,15 @@ using UnityEngine;
 public class InputToungeAction : MonoBehaviour {
 
     [SerializeField] private PlayerEnum playerType;
-    [SerializeField] private float toungeSpeed = 5f;
+    [SerializeField] private float toungeSpeed = 1f;
+    [SerializeField] private float toungeBackSpeed = 0.2f;
     [SerializeField] private float toungeTime = 2f;
     [SerializeField] private GameObject toungeFrontObj;
     private Coroutine toungeCoroutine = null;
+    private Coroutine waitPushCorotuine = null;
     private Rigidbody2D toungeRigid;
+
+    private float pushTime = 0f;
 	// Use this for initialization
 	void Start () {
         toungeRigid = toungeFrontObj.GetComponent<Rigidbody2D>();
@@ -20,30 +24,49 @@ public class InputToungeAction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        bool isPushed = false;
+
+        if (waitPushCorotuine != null||toungeCoroutine!=null) return;
         if (playerType == PlayerEnum.Player1)
         {
             if (Input.GetButtonDown("Tounge1"))
             {
-                isPushed = true;
+                waitPushCorotuine = StartCoroutine(WaitPushCoroutine());
             }
         }
         else{
             if (Input.GetButtonDown("Tounge2"))
             {
-                isPushed = true;
+                waitPushCorotuine = StartCoroutine(WaitPushCoroutine());
             }
         }
-        if (isPushed) {
-            
-            if (toungeCoroutine == null)
-            {
-                toungeCoroutine = StartCoroutine(ToungeCorotine());
-            }
 
-        }
 	}
+
+    private IEnumerator WaitPushCoroutine(){
+        pushTime = 0f;
+        while(pushTime<=1f){
+            if (playerType == PlayerEnum.Player1)
+            {
+                if (Input.GetButtonUp("Tounge1"))
+                {
+                    break;
+                }
+            }
+            else
+            {
+                if (Input.GetButtonUp("Tounge2"))
+                {
+                    break;
+                }
+            }
+            pushTime += Time.deltaTime;
+            yield return null;
+        }
+        toungeCoroutine = StartCoroutine(ToungeCorotine());
+
+        waitPushCorotuine = null;
+
+    }
 
     private IEnumerator ToungeCorotine(){
         ResetTounge();
@@ -61,9 +84,10 @@ public class InputToungeAction : MonoBehaviour {
         }
 
         if(inputVec==Vector2.zero){
-            ResetTounge();
-            toungeCoroutine = null;
-            yield break;
+            inputVec = this.GetComponent<Rigidbody2D>().velocity.normalized;
+            if(inputVec==Vector2.zero){
+                inputVec = Vector2.right;
+            }
 
         }
         float time = 0f;
@@ -72,8 +96,9 @@ public class InputToungeAction : MonoBehaviour {
             yield return new  WaitForFixedUpdate();
             time += Time.fixedDeltaTime;
         }
+        toungeFrontObj.GetComponent<Collider2D>().isTrigger = true;
         while((this.transform.position-toungeFrontObj.transform.position).magnitude>0.1f){
-            toungeRigid.transform.Translate(-1f*inputVec.normalized * toungeSpeed, Space.Self);
+            toungeRigid.transform.Translate(-1f*inputVec.normalized * toungeBackSpeed, Space.Self);
             yield return new WaitForFixedUpdate();
         }
         ResetTounge();
@@ -84,5 +109,6 @@ public class InputToungeAction : MonoBehaviour {
     {
         toungeRigid.velocity = Vector2.zero;
         toungeFrontObj.transform.position = this.transform.position;
+        toungeFrontObj.GetComponent<Collider2D>().isTrigger = false;
     }
 }
