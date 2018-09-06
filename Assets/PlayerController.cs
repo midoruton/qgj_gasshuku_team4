@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour {
     private Foot foot;
     private WallSensor ws;
 
+
+    private bool isImpact = false;
     // Use this for initialization
     void Start() {
         rb2D = GetComponent<Rigidbody2D>();
@@ -33,6 +35,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (isImpact) return;
         Vector2 newVel = new Vector2(rb2D.velocity.x,rb2D.velocity.y);
         float x = 0;
         float y = 0;
@@ -89,6 +93,15 @@ public class PlayerController : MonoBehaviour {
         {
             jumpCount = 0;
         }
+    }
+
+    public void Impact(){
+        if (isImpact) return;
+        isImpact = true;
+        Invoke("SetImpactFalse", 0.4f);
+    }
+    private void SetImpactFalse(){
+        isImpact = false;
     }
     /*
     private void OnCollisionStay2D(Collision2D collision)
