@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4753792509236596}
   - component: {fileID: 61140589569201688}
   - component: {fileID: 114904550558858532}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4282044437129036}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Tounge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4466891029454474}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Scaler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4133105146925428}
   - component: {fileID: 114407916608650274}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ToungeSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 50583482686971792}
   - component: {fileID: 58984744991205780}
   - component: {fileID: 114122923450969514}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ToungeFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4946392019444316}
   - component: {fileID: 61899607183382826}
   - component: {fileID: 114533750017685476}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: WallSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4206270026303580}
   - component: {fileID: 212423026666083280}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,12 +134,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4268545044147940}
   - component: {fileID: 50282210898427602}
-  - component: {fileID: 61549043632248566}
   - component: {fileID: 212401763385127408}
   - component: {fileID: 114288705965808030}
   - component: {fileID: 114061227723091574}
   - component: {fileID: 114062471747330850}
-  m_Layer: 9
+  - component: {fileID: 70249274540424672}
+  m_Layer: 10
   m_Name: Frog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1770969654762162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4282044437129036}
@@ -275,7 +275,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 4e9a82c0965624c7aa1345bed25a2cb0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!50 &50583482686971792
 Rigidbody2D:
@@ -295,7 +295,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &58984744991205780
 CircleCollider2D:
@@ -324,7 +324,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.21}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -335,32 +335,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.77, y: 0.26}
-  m_EdgeRadius: 0
---- !u!61 &61549043632248566
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1770969654762162}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 1.3}
-    newSize: {x: 1.2, y: 1.3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.24}
+  m_Size: {x: 2.01, y: 0.89}
   m_EdgeRadius: 0
 --- !u!61 &61899607183382826
 BoxCollider2D:
@@ -387,6 +362,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3, y: 0.5}
   m_EdgeRadius: 0
+--- !u!70 &70249274540424672
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1770969654762162}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.13}
+  m_Size: {x: 1, y: 1.89}
+  m_Direction: 0
 --- !u!114 &114061227723091574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -398,9 +388,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e403098a531c43ee8bbdf8306b34b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerType: 0
-  toungeSpeed: 0.2
-  toungeTime: 1
+  playerType: 1
+  toungeSpeed: 0.5
+  toungeBackSpeed: 0.2
+  toungeTime: 0.04
   toungeFrontObj: {fileID: 1555490762313576}
 --- !u!114 &114062471747330850
 MonoBehaviour:
@@ -443,7 +434,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpSpeed: 6
   wallJumpReaction: 0
-  playerType: 0
+  playerType: 1
 --- !u!114 &114407916608650274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,6 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acdb20b980a32e4b957f5f94f211943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLeaf: 0
 --- !u!212 &212401763385127408
 SpriteRenderer:
   m_ObjectHideFlags: 1
