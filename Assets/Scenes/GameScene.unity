@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 3947920}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 318680988}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 449944301}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,7 +716,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -15}
+  m_LocalPosition: {x: 1.1, y: 1, z: -27.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1147,10 +1147,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1770969654762162, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Name
-      value: FrogA
-      objectReference: {fileID: 0}
     - target: {fileID: 114062471747330850, guid: 307108846b6554f4395ac1921b199b95,
         type: 2}
       propertyPath: Heart.Array.data[0]
@@ -1166,23 +1162,9 @@ Prefab:
       propertyPath: Heart.Array.data[2]
       value: 
       objectReference: {fileID: 66634715}
-    - target: {fileID: 61549043632248566, guid: 307108846b6554f4395ac1921b199b95,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61140589569201688, guid: 307108846b6554f4395ac1921b199b95,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753792509236596, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 1205488340970556, guid: 307108846b6554f4395ac1921b199b95, type: 2}
-      propertyPath: m_Layer
-      value: 11
+    - target: {fileID: 1770969654762162, guid: 307108846b6554f4395ac1921b199b95, type: 2}
+      propertyPath: m_Name
+      value: FrogA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307108846b6554f4395ac1921b199b95, type: 2}
@@ -1322,6 +1304,10 @@ Prefab:
     - target: {fileID: 4085335310710138, guid: b7c898f898ee51447b91533a10c4c7a9, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104544726626868, guid: b7c898f898ee51447b91533a10c4c7a9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7c898f898ee51447b91533a10c4c7a9, type: 2}

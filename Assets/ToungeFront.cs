@@ -13,6 +13,7 @@ public class ToungeFront : MonoBehaviour {
         foreach(var r in result){
             if (r == null) return;
             if(r.tag == "Leaf"||r.tag=="Wall"){
+                if (onHitLeafAction != null)
                 onHitLeafAction();
             }
         }
