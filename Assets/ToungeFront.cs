@@ -5,8 +5,8 @@ using System;
 public class ToungeFront : MonoBehaviour {
 
     public Action onHitLeafAction;
-
-    private void Update()
+    public float power;
+    private void FixedUpdate()
     {
         var result = new Collider2D[10];
         GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(),result);
@@ -21,14 +21,16 @@ public class ToungeFront : MonoBehaviour {
             var layerName = LayerMask.LayerToName(r.gameObject.layer);
             if(layerName == "FrogA"||layerName=="FrogB"){
                 if(r.gameObject.layer!=this.gameObject.layer){
-                    
+
+                    if (onHitLeafAction != null)onHitLeafAction();
                     var rigid = r.gameObject.GetComponent<Rigidbody2D>();
-                    rigid.AddForce((r.transform.position - this.transform.position).normalized*2f,ForceMode2D.Impulse);
+                    rigid.AddForce((r.transform.position - this.transform.position).normalized*power,ForceMode2D.Impulse);
                     var playerController = r.gameObject.GetComponent<PlayerController>();
                     if (playerController != null)
                     {
                         playerController.Impact();
                     }
+
 
                 }
             }
