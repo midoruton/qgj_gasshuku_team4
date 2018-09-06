@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
         {
             newVel.x += -moveSpeed;
         }
+        ableToJump = foot.OnLeaf;
         if (ableToJump&&y>0)
         {
             newVel.y = jumpSpeed;
