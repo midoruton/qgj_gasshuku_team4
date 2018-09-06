@@ -5,7 +5,7 @@ using System;
 public class ToungeFront : MonoBehaviour {
 
     public Action onHitLeafAction;
-
+    public float power;
     private void Update()
     {
         var result = new Collider2D[10];
@@ -23,12 +23,13 @@ public class ToungeFront : MonoBehaviour {
                 if(r.gameObject.layer!=this.gameObject.layer){
                     
                     var rigid = r.gameObject.GetComponent<Rigidbody2D>();
-                    rigid.AddForce((r.transform.position - this.transform.position).normalized*2f,ForceMode2D.Impulse);
+                    rigid.AddForce((r.transform.position - this.transform.position).normalized*power,ForceMode2D.Impulse);
                     var playerController = r.gameObject.GetComponent<PlayerController>();
                     if (playerController != null)
                     {
                         playerController.Impact();
                     }
+                    power = 2f;
 
                 }
             }

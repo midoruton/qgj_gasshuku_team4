@@ -9,6 +9,8 @@ public class InputToungeAction : MonoBehaviour {
     [SerializeField] private float toungeBackSpeed = 0.2f;
     [SerializeField] private float toungeTime = 2f;
     [SerializeField] private GameObject toungeFrontObj;
+    [SerializeField] private PlayerController enemy;
+    [SerializeField] private float ikichi = 20f;
     private Coroutine toungeCoroutine = null;
     private Coroutine waitPushCorotuine = null;
     private Rigidbody2D toungeRigid;
@@ -90,12 +92,19 @@ public class InputToungeAction : MonoBehaviour {
             }
 
         }
+
+
+        var normVec = (enemy.transform.position - this.transform.position).normalized;
+        if(Vector2.Angle(normVec,inputVec)<ikichi){
+            inputVec = normVec;
+        }
         float time = 0f;
         while(time <=toungeTime&&!isLeafTouch){
             toungeRigid.transform.Translate(inputVec.normalized * toungeSpeed,Space.Self);
             yield return new  WaitForFixedUpdate();
             time += Time.fixedDeltaTime;
         }
+        toungeFrontObj.GetComponent<ToungeFront>().power = 2 + pushTime * 10f;
         toungeFrontObj.GetComponent<Collider2D>().isTrigger = true;
         while((this.transform.position-toungeFrontObj.transform.position).magnitude>0.1f){
             toungeRigid.transform.Translate(-1f*inputVec.normalized * toungeBackSpeed, Space.Self);
