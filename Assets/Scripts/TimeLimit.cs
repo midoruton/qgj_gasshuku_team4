@@ -23,7 +23,7 @@ public class TimeLimit : MonoBehaviour {
         Limit -= Time.deltaTime;
         _timeText.text = ((int)Limit).ToString();
 
-        if(_goFinish && Limit < 0.7f)
+        if(_goFinish && Limit < 1.0f)
         {
             Instantiate(Finish, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
 
