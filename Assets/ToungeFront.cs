@@ -5,7 +5,11 @@ using System;
 public class ToungeFront : MonoBehaviour {
 
     public Action onHitLeafAction;
-    public float power;
+    public float basePower;
+    public float bonusPower;
+    public float chargeTimeNormarized;
+
+    private Coroutine timeScaleCoroutine;
     private void FixedUpdate()
     {
         var result = new Collider2D[10];
@@ -24,17 +28,28 @@ public class ToungeFront : MonoBehaviour {
 
                     if (onHitLeafAction != null)onHitLeafAction();
                     var rigid = r.gameObject.GetComponent<Rigidbody2D>();
-                    rigid.AddForce((r.transform.position - this.transform.position).normalized*power,ForceMode2D.Impulse);
+                    rigid.AddForce((r.transform.position - this.transform.position).normalized*(basePower+bonusPower*chargeTimeNormarized),ForceMode2D.Impulse);
                     var playerController = r.gameObject.GetComponent<PlayerController>();
                     if (playerController != null)
                     {
                         playerController.Impact();
+                        if (timeScaleCoroutine == null) StartCoroutine(TimeScale());
                     }
 
 
                 }
             }
         }
+    }
+
+    IEnumerator TimeScale(){
+        Time.timeScale = 0.0f;
+        if (chargeTimeNormarized > 0.8f)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        Time.timeScale = 1f;
+        timeScaleCoroutine = null;
     }
    
 }
