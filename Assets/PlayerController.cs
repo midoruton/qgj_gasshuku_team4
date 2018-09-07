@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
         OnRightWall,
     }
     [SerializeField] private GameObject particleSys;
+    [SerializeField] private GameObject dashEffect; 
     private State st = State.Flying;
     private Rigidbody2D rb2D;
     private bool ableToJump = false;
@@ -71,17 +72,21 @@ public class PlayerController : MonoBehaviour {
             Vector3 vector = (new Vector3(newVel.x, newVel.y, 0f)).normalized;
             if (vector.y < 0f) vector.y = 0f;
 
+
             if (playerType == PlayerEnum.Player1)
             {
                 if (Input.GetButtonDown("Dash1"))
                 {
 
 
-
+                    if (vector == Vector3.zero) return;
                     rb2D.MovePosition(this.transform.position + vector*2f);
 
                     canDash = false;
                     Invoke("SetCanDashTrue", 0.1f);
+                    var d = Instantiate(dashEffect, this.transform.position, Quaternion.identity);
+                    d.transform.up = vector;
+
                     return;
                 }
             }
@@ -89,9 +94,12 @@ public class PlayerController : MonoBehaviour {
             {
                 if (Input.GetButtonDown("Dash2"))
                 {
+                    if (vector == Vector3.zero) return;
                     rb2D.MovePosition(this.transform.position + vector * 2f);
                     canDash = false;
                     Invoke("SetCanDashTrue", 0.1f);
+                    var d = Instantiate(dashEffect, this.transform.position, Quaternion.identity);
+                    d.transform.up = vector;
                     return;
                 }
 

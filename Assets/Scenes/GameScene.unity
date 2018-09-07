@@ -163,9 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831a18ad992743145b694fd8ff420361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrogAResult: 0
   FrogA: {fileID: 372087013}
-  FrogBResult: 0
   FrogB: {fileID: 113508162}
 --- !u!1 &170076733
 GameObject:

@@ -509,6 +509,7 @@ MonoBehaviour:
   playerType: 0
   particleSys: {fileID: 1014375578788904, guid: 8a733b20d02d6450ebf6f1fdacbd5570,
     type: 2}
+  dashEffect: {fileID: 1084660703307154, guid: 1d08dd01267f24cdb83492c245e992ec, type: 2}
   foot: {fileID: 0}
 --- !u!114 &114407916608650274
 MonoBehaviour:
