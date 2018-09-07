@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour {
         OnRightWall,
     }
     [SerializeField] private GameObject particleSys;
-    [SerializeField] private GameObject dashEffect; 
+    [SerializeField] private GameObject dashEffect;
+    [SerializeField] private AudioClip hitClip;
     private State st = State.Flying;
     private Rigidbody2D rb2D;
     private bool ableToJump = false;
@@ -159,6 +160,8 @@ public class PlayerController : MonoBehaviour {
 
     public void Impact(float impactTime){
         if (isImpact) return;
+        this.GetComponent<AudioSource>().clip = hitClip;
+        this.GetComponent<AudioSource>().Play();
         isImpact = true;
         if(TenmetuCorotuine==null){
             TenmetuCorotuine = StartCoroutine(Tenmetu());
