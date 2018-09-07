@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerHitpoint : MonoBehaviour {
 
-    public int hitPoint = 3;
-    public List<GameObject> Heart;
+    public int DeathCounter = 0;
 
 	// Use this for initialization
 	void Start ()
@@ -24,14 +23,8 @@ public class PlayerHitpoint : MonoBehaviour {
         {
             transform.position = new Vector3(0.0f, 0.0f, 0.0f);
             this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            //hitPoint -= 1;
-            //Destroy(Heart[hitPoint]);
-
-
-            //if(hitPoint == 0)
-            //{
-            //    Destroy(gameObject);
-            //}
+            DeathCounter += 1;
+            Debug.Log(DeathCounter);
         }
     }
 }

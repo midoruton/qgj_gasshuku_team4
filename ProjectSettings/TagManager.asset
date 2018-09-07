@@ -7,6 +7,7 @@ TagManager:
   - Leaf
   - Wall
   - Water
+  - OverWater
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: BackGround
     uniqueID: 568707957
+    locked: 0
+  - name: SideWall
+    uniqueID: 3187282967
     locked: 0
   - name: Rain
     uniqueID: 3024173077
