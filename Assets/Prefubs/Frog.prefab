@@ -491,6 +491,7 @@ MonoBehaviour:
   basePower: 8
   bonusPower: 10
   chargeTimeNormarized: 0
+  parentTransform: {fileID: 0}
 --- !u!114 &114288705965808030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,7 +730,7 @@ SpriteRenderer:
   m_SortingLayerID: 1700819451
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24dd52bf74537d94985b6440600cfe4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55a862509fac4f14697c16957be22afd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
