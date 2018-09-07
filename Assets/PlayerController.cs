@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
         OnLeftWall,
         OnRightWall,
     }
+    [SerializeField] private GameObject particleSys;
     private State st = State.Flying;
     private Rigidbody2D rb2D;
     private bool ableToJump = false;
@@ -155,6 +156,7 @@ public class PlayerController : MonoBehaviour {
             TenmetuCorotuine = StartCoroutine(Tenmetu());
         }
         Invoke("SetImpactFalse", impactTime);
+        Instantiate(particleSys, this.transform);
     }
 
     IEnumerator Tenmetu(){
