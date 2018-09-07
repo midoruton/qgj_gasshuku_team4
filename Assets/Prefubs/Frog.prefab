@@ -440,8 +440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 0
-  toungeSpeed: 0.6
-  toungeBackSpeed: 0.2
+  toungeSpeed: 0.4
+  toungeBackSpeed: 0.15
   toungeTime: 0.2
   toungeFrontObj: {fileID: 1555490762313576}
   enemy: {fileID: 0}
@@ -458,11 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90726a0ec0768842b24dbedd96d3710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 3
-  Heart:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  DeathCounter: 0
 --- !u!114 &114104196600858720
 MonoBehaviour:
   m_ObjectHideFlags: 1

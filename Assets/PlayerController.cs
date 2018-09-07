@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     private Coroutine TenmetuCorotuine;
 
     private bool isImpact = false;
+    private bool canDash = true;
     // Use this for initialization
     void Start() {
         rb2D = GetComponent<Rigidbody2D>();
@@ -62,7 +63,39 @@ public class PlayerController : MonoBehaviour {
                 isJumpPushed = true;
             }
         }
+        //dash処理
+        if (canDash)
+        {
+            
+            Vector3 vector = (new Vector3(newVel.x, newVel.y, 0f)).normalized;
+            if (vector.y < 0f) vector.y = 0f;
 
+            if (playerType == PlayerEnum.Player1)
+            {
+                if (Input.GetButtonDown("Dash1"))
+                {
+
+
+
+                    rb2D.MovePosition(this.transform.position + vector*2f);
+
+                    canDash = false;
+                    Invoke("SetCanDashTrue", 0.1f);
+                    return;
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown("Dash2"))
+                {
+                    rb2D.MovePosition(this.transform.position + vector * 2f);
+                    canDash = false;
+                    Invoke("SetCanDashTrue", 0.1f);
+                    return;
+                }
+
+            }
+        }
         if (foot.OnLeaf) {
             if (x>0)
             {
@@ -89,6 +122,8 @@ public class PlayerController : MonoBehaviour {
             {
                 newVel.x = 0;
             }
+
+
         }
 
         if ((foot.OnLeaf) || (ws.OnWall))
@@ -136,6 +171,10 @@ public class PlayerController : MonoBehaviour {
         this.GetComponent<SpriteRenderer>().material.color = new Color(1f,1f,1f,1f);
         StopCoroutine(TenmetuCorotuine);
         TenmetuCorotuine = null;
+    }
+
+    private void SetCanDashTrue(){
+        canDash = true;
     }
     /*
     private void OnCollisionStay2D(Collision2D collision)
