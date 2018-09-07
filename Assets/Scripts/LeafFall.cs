@@ -30,6 +30,11 @@ public class LeafFall : MonoBehaviour {
             fallSpeed = 0.1f;
             Destroy(gameObject, _time);
         }
+
+        if(col.tag == "OverWater")
+        {
+            fallSpeed = 0.5f;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D col)
