@@ -32,7 +32,7 @@ public class ToungeFront : MonoBehaviour {
                     var playerController = r.gameObject.GetComponent<PlayerController>();
                     if (playerController != null)
                     {
-                        playerController.Impact(chargeTimeNormarized);
+                        playerController.Impact(chargeTimeNormarized*2f);
                         if (timeScaleCoroutine == null) StartCoroutine(TimeScale());
                     }
 

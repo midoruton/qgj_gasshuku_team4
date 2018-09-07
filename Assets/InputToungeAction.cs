@@ -14,7 +14,7 @@ public class InputToungeAction : MonoBehaviour
     [SerializeField] private PlayerController enemy;
     [SerializeField] private float ikichi = 20f;
     [SerializeField] private GameObject tongeRangeObj;
-    [SerializeField] private GameObject particleSys;
+
     public Coroutine toungeCoroutine = null;
     private Coroutine waitPushCorotuine = null;
     private Rigidbody2D toungeRigid;
@@ -23,6 +23,14 @@ public class InputToungeAction : MonoBehaviour
 
     public Action pushAction;
     public Action toungeBeforeAction;
+    public Action stopChargeAction;
+    public void ResetCharge(){
+        StopCoroutine(waitPushCorotuine);
+        waitPushCorotuine = null;
+        pushTime = 0f;
+        stopChargeAction();
+        tongeRangeObj.SetActive(false);
+    }
     // Use this for initialization
     void Start()
     {
@@ -32,6 +40,8 @@ public class InputToungeAction : MonoBehaviour
             Debug.LogError("舌オブジェクトにRigidbody2Dがアタッチされていません。");
         }
         toungeFrontObj.GetComponent<ToungeFront>().parentTransform = this.transform;
+        var r = tongeRangeObj.GetComponent<CircleRenderer>();
+        r.ResetPoints();
     }
 
 
@@ -61,8 +71,7 @@ public class InputToungeAction : MonoBehaviour
         tongeRangeObj.SetActive(true);
         toungeBeforeAction();
         var r = tongeRangeObj.GetComponent<CircleRenderer>();
-        r.xradius = 0f;
-        r.yradius = 0f;
+        r.ResetPoints();
         pushTime = 0f;
         while(pushTime<=1f){
             if (playerType == PlayerEnum.Player1)
@@ -79,7 +88,7 @@ public class InputToungeAction : MonoBehaviour
                     break;
                 }
             }
-            pushTime += Time.deltaTime;
+            pushTime += Time.deltaTime/2f;
 
             r.xradius = toungeSpeed*200*toungeTime * pushTime;
             r.yradius = toungeSpeed * 200 * toungeTime * pushTime;
@@ -88,7 +97,7 @@ public class InputToungeAction : MonoBehaviour
         toungeCoroutine = StartCoroutine(ToungeCorotine(pushTime));
 
         waitPushCorotuine = null;
-        r.ResetPoints();
+
         tongeRangeObj.SetActive(false);
     }
 

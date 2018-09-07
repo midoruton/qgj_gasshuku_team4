@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{A0F42D86-7FFD-E855-A338-AA268EBE03FD}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AnimateDash.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MainCamera.cs">
     <Files>
       <File FileName="Assets/InputToungeAction.cs" Line="17" Column="5" />
       <File FileName="Assets/ToungeSpriteMgr.cs" Line="33" Column="9" />
-      <File FileName="Assets/PlayerController.cs" Line="98" Column="56" />
+      <File FileName="Assets/PlayerController.cs" Line="102" Column="45" />
       <File FileName="Assets/Scripts/PlayerEnum.cs" Line="8" Column="2" />
       <File FileName="Assets/Foot.cs" Line="7" Column="20" />
       <File FileName="Assets/ToungeFront.cs" Line="35" Column="69" />
@@ -20,7 +20,8 @@
       <File FileName="Assets/Scripts/NewBehaviourScript.cs" Line="13" Column="30" />
       <File FileName="Assets/Scripts/CircleRenderer.cs" Line="45" Column="12" />
       <File FileName="Assets/SplashScaler.cs" Line="16" Column="34" />
-      <File FileName="Assets/AnimateDash.cs" Line="14" Column="38" />
+      <File FileName="Assets/AnimateDash.cs" Line="14" Column="60" />
+      <File FileName="Assets/MainCamera.cs" Line="6" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -12,7 +12,7 @@ public class CircleRenderer : MonoBehaviour {
     public float yradius = 5;
     LineRenderer line;
 
-    void Start ()
+    private void Awake()
     {
         line = gameObject.GetComponent<LineRenderer>();
 
@@ -20,7 +20,11 @@ public class CircleRenderer : MonoBehaviour {
         line.useWorldSpace = false;
         line.startWidth = 0.1f;
         line.endWidth = 0.1f;
-        CreatePoints ();
+        CreatePoints();
+        
+    }
+    void Start ()
+    {
     }
 
     void CreatePoints ()
