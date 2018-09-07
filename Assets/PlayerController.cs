@@ -74,9 +74,22 @@ public class PlayerController : MonoBehaviour {
             {
                 newVel.x = 0;
             }
+        }else if(rb2D.velocity.y<-0.1f){
+            if (x > 0)
+            {
+                newVel.x = moveSpeed*1.2f;
+            }
+            if (x < 0)
+            {
+                newVel.x = -moveSpeed*1.2f;
+            }
+            if (x == 0)
+            {
+                newVel.x = 0;
+            }
         }
 
-        if ((jumpCount == 0 && foot.OnLeaf) || (jumpCount == 1 && ws.OnWall))
+        if ((foot.OnLeaf) || (ws.OnWall))
         {
             ableToJump = true;
         } 
@@ -101,7 +114,7 @@ public class PlayerController : MonoBehaviour {
     public void Impact(){
         if (isImpact) return;
         isImpact = true;
-        Invoke("SetImpactFalse", 0.4f);
+        Invoke("SetImpactFalse", 1f);
     }
     private void SetImpactFalse(){
         isImpact = false;
