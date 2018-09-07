@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ec43f3914e71648a436bdfd4c5044e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Limit: 30
+  Limit: 120
   Finish: {fileID: 1380085838619384, guid: d5b865f76f1f5fc4d955701f7a53e8a1, type: 2}
 --- !u!114 &856406820
 MonoBehaviour:
@@ -1257,7 +1257,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 30
+  m_Text: 120
 --- !u!222 &856406821
 CanvasRenderer:
   m_ObjectHideFlags: 0
