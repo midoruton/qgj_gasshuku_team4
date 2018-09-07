@@ -123,6 +123,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1770969654762162, guid: 307108846b6554f4395ac1921b199b95,
     type: 2}
   m_PrefabInternal: {fileID: 1952868730}
+--- !u!1 &121514626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121514627}
+  - component: {fileID: 121514628}
+  m_Layer: 0
+  m_Name: ResultCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121514627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121514626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.373409, y: -7.477624, z: 4.4906178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &121514628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121514626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831a18ad992743145b694fd8ff420361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrogAResult: 0
+  FrogA: {fileID: 372087013}
+  FrogBResult: 0
+  FrogB: {fileID: 113508162}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ec43f3914e71648a436bdfd4c5044e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Limit: 120
+  Limit: 30
 --- !u!114 &856406820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,7 +1248,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 120
+  m_Text: 12
 --- !u!222 &856406821
 CanvasRenderer:
   m_ObjectHideFlags: 0
