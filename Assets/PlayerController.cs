@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour {
     private WallSensor ws;
 
 
+    private Coroutine TenmetuCorotuine;
+
     private bool isImpact = false;
     // Use this for initialization
     void Start() {
@@ -111,13 +113,29 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void Impact(){
+    public void Impact(float impactTime){
         if (isImpact) return;
         isImpact = true;
-        Invoke("SetImpactFalse", 1f);
+        if(TenmetuCorotuine==null){
+            TenmetuCorotuine = StartCoroutine(Tenmetu());
+        }
+        Invoke("SetImpactFalse", impactTime);
+    }
+
+    IEnumerator Tenmetu(){
+        while(true){
+            Color old = this.GetComponent<SpriteRenderer>().material.color;
+            this.GetComponent<SpriteRenderer>().material.color = new Color(old.r,old.g,old.b,0f);
+            yield return new WaitForSeconds(0.05f);
+            this.GetComponent<SpriteRenderer>().material.color = old;
+            yield return new WaitForSeconds(0.05f);
+        }
     }
     private void SetImpactFalse(){
         isImpact = false;
+        this.GetComponent<SpriteRenderer>().material.color = new Color(1f,1f,1f,1f);
+        StopCoroutine(TenmetuCorotuine);
+        TenmetuCorotuine = null;
     }
     /*
     private void OnCollisionStay2D(Collision2D collision)
