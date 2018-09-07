@@ -80,8 +80,8 @@ public class InputToungeAction : MonoBehaviour
             }
             pushTime += Time.deltaTime;
 
-            r.xradius = 24f * pushTime;
-            r.yradius = 24f * pushTime;
+            r.xradius = toungeSpeed*200*toungeTime * pushTime;
+            r.yradius = toungeSpeed * 200 * toungeTime * pushTime;
             yield return null;
         }
         toungeCoroutine = StartCoroutine(ToungeCorotine(pushTime));
