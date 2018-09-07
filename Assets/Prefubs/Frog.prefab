@@ -440,15 +440,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 0
-  toungeSpeed: 0.4
+  toungeSpeed: 0.2
   toungeBackSpeed: 0.15
-  toungeTime: 0.2
+  toungeTime: 0.4
   toungeFrontObj: {fileID: 1555490762313576}
   enemy: {fileID: 0}
   ikichi: 45
   tongeRangeObj: {fileID: 1332350343018292}
-  particleSys: {fileID: 1014375578788904, guid: 8a733b20d02d6450ebf6f1fdacbd5570,
-    type: 2}
 --- !u!114 &114062471747330850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -504,7 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpSpeed: 10
+  jumpSpeed: 8
   wallJumpReaction: 0
   playerType: 0
   particleSys: {fileID: 1014375578788904, guid: 8a733b20d02d6450ebf6f1fdacbd5570,

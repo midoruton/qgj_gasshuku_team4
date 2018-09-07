@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
         //dash処理
-        if (canDash)
+        if (!ableToJump)
         {
             
             Vector3 vector = (new Vector3(newVel.x, newVel.y, 0f)).normalized;
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 
             if (playerType == PlayerEnum.Player1)
             {
-                if (Input.GetButtonDown("Dash1"))
+                if (Input.GetButtonDown("Jump1"))
                 {
 
 
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                if (Input.GetButtonDown("Dash2"))
+                if (Input.GetButtonDown("Jump1"))
                 {
                     if (vector == Vector3.zero) return;
                     rb2D.MovePosition(this.transform.position + vector * 2f);
@@ -165,6 +165,7 @@ public class PlayerController : MonoBehaviour {
         }
         Invoke("SetImpactFalse", impactTime);
         Instantiate(particleSys, this.transform);
+        this.GetComponent<InputToungeAction>().ResetCharge();
     }
 
     IEnumerator Tenmetu(){
