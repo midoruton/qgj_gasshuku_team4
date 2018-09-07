@@ -11,34 +11,50 @@ public class TutorialManager : MonoBehaviour {
     private Image im;
     private bool lastTimePressed = false;
     private int progress = 0;
+    private AudioSource auds;
+    private bool changingScene = false;
+    private float t = 0;
 	// Use this for initialization
 	void Start () {
         im = GetComponent<Image>();
         im.sprite = graphs[0];
-
+        auds = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Submit"))
+        if (!changingScene)
         {
-            if (!lastTimePressed)
+            if (Input.GetButtonDown("Submit"))
             {
-                progress++;
-                if (progress >= graphs.Count)
+                if (!lastTimePressed)
                 {
-                    SceneManager.LoadScene("GameScene");
+                    progress++;
+                    if (progress >= graphs.Count)
+                    {
+                        auds.PlayOneShot(auds.clip);
+                        changingScene = true;
+                    }
+                    else
+                    {
+                        im.sprite = graphs[progress];
+                        auds.PlayOneShot(auds.clip);
+                    }
                 }
-                else
-                {
-                    im.sprite = graphs[progress];
-                }
+                lastTimePressed = true;
             }
-            lastTimePressed = true;
+            else
+            {
+                lastTimePressed = false;
+            }
         }
         else
         {
-            lastTimePressed = false;
+            t += Time.deltaTime;
+            if (t > 0.5)
+            {
+                SceneManager.LoadScene("GameScene");
+            }
         }
         Debug.Log(progress);
 	}

@@ -42,6 +42,11 @@ public class PlayerAnimationController : MonoBehaviour {
             Invoke("SetToungePushFalse", 0.1f);
             animator.Play("Tounge");
         };
+        inputTongue.stopChargeAction = () =>
+        {
+            isToungePush = false;
+            animator.Play("Stand");
+        };
 
     }
 
