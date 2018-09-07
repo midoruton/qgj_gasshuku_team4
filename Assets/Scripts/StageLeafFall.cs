@@ -7,6 +7,7 @@ public class StageLeafFall : MonoBehaviour {
     public float fallspeed = 0.3f;
     private float _timer;
     private Rigidbody2D _rigidbody;
+    private float nowTime = 0f;
 
 	// Use this for initialization
 	void Start ()
@@ -18,7 +19,8 @@ public class StageLeafFall : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(Time.time >= _timer)
+        
+        if(nowTime >= _timer)
         {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, -fallspeed);
         }
@@ -27,5 +29,6 @@ public class StageLeafFall : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        nowTime += Time.deltaTime;
 	}
 }

@@ -639,7 +639,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   ikichi: 45
   tongeRangeObj: {fileID: 1332350343018292}
-  clip: {fileID: 8300000, guid: 5792b215d5271f4419f59a6f5971a995, type: 3}
+  clip: {fileID: 8300000, guid: b2321aee7b171cd42b2a7e95db99086e, type: 3}
 --- !u!114 &114062471747330850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -653,7 +653,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splashEffect: {fileID: 1777560788630470, guid: 8720e47d8fe7b4d108063a6ea117b6b5,
     type: 2}
-  fallClip: {fileID: 8300000, guid: 991d7fdf64a8f584987cbc79dee467b4, type: 3}
+  fallClip: {fileID: 8300000, guid: 8bd82efdfcca3ae42a22020f11818f4f, type: 3}
+  SpawnPoint: {fileID: 0}
   DeathCounter: 0
 --- !u!114 &114104196600858720
 MonoBehaviour:
@@ -702,7 +703,7 @@ MonoBehaviour:
   particleSys: {fileID: 1014375578788904, guid: 8a733b20d02d6450ebf6f1fdacbd5570,
     type: 2}
   dashEffect: {fileID: 1084660703307154, guid: 1d08dd01267f24cdb83492c245e992ec, type: 2}
-  hitClip: {fileID: 8300000, guid: b53c1d055de0db448a13cfa43b4f950a, type: 3}
+  hitClip: {fileID: 8300000, guid: b0bf2352faa0268488a9da7f03cca93d, type: 3}
   foot: {fileID: 0}
 --- !u!114 &114407916608650274
 MonoBehaviour:
