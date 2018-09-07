@@ -8,7 +8,7 @@ public class ToungeFront : MonoBehaviour {
     public float basePower;
     public float bonusPower;
     public float chargeTimeNormarized;
-
+    public Transform parentTransform;
     private Coroutine timeScaleCoroutine;
     private void FixedUpdate()
     {
@@ -28,11 +28,11 @@ public class ToungeFront : MonoBehaviour {
 
                     if (onHitLeafAction != null)onHitLeafAction();
                     var rigid = r.gameObject.GetComponent<Rigidbody2D>();
-                    rigid.AddForce((r.transform.position - this.transform.position).normalized*(basePower+bonusPower*chargeTimeNormarized),ForceMode2D.Impulse);
+                    rigid.AddForce((r.transform.position - parentTransform.position).normalized*(basePower+bonusPower*chargeTimeNormarized),ForceMode2D.Impulse);
                     var playerController = r.gameObject.GetComponent<PlayerController>();
                     if (playerController != null)
                     {
-                        playerController.Impact();
+                        playerController.Impact(chargeTimeNormarized);
                         if (timeScaleCoroutine == null) StartCoroutine(TimeScale());
                     }
 

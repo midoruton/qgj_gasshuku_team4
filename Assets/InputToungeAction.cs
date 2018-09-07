@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using System;
-public class InputToungeAction : MonoBehaviour {
+public class InputToungeAction : MonoBehaviour
+{
 
     [SerializeField] private PlayerEnum playerType;
     [SerializeField] private float toungeSpeed = 1f;
@@ -21,13 +22,18 @@ public class InputToungeAction : MonoBehaviour {
 
     public Action pushAction;
     public Action toungeBeforeAction;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         toungeRigid = toungeFrontObj.GetComponent<Rigidbody2D>();
-        if(toungeRigid==null){
+        if (toungeRigid == null)
+        {
             Debug.LogError("舌オブジェクトにRigidbody2Dがアタッチされていません。");
         }
-        }
+        toungeFrontObj.GetComponent<ToungeFront>().parentTransform = this.transform;
+    }
+
+
 	
 	// Update is called once per frame
 	void Update () {
