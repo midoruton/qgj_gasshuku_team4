@@ -14,6 +14,7 @@ public class InputToungeAction : MonoBehaviour
     [SerializeField] private PlayerController enemy;
     [SerializeField] private float ikichi = 20f;
     [SerializeField] private GameObject tongeRangeObj;
+    [SerializeField] private GameObject particleSys;
     public Coroutine toungeCoroutine = null;
     private Coroutine waitPushCorotuine = null;
     private Rigidbody2D toungeRigid;

@@ -447,6 +447,8 @@ MonoBehaviour:
   enemy: {fileID: 0}
   ikichi: 45
   tongeRangeObj: {fileID: 1332350343018292}
+  particleSys: {fileID: 1014375578788904, guid: 8a733b20d02d6450ebf6f1fdacbd5570,
+    type: 2}
 --- !u!114 &114062471747330850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,6 +460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90726a0ec0768842b24dbedd96d3710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashEffect: {fileID: 1777560788630470, guid: 8720e47d8fe7b4d108063a6ea117b6b5,
+    type: 2}
   DeathCounter: 0
 --- !u!114 &114104196600858720
 MonoBehaviour:
@@ -503,6 +507,9 @@ MonoBehaviour:
   jumpSpeed: 10
   wallJumpReaction: 0
   playerType: 0
+  particleSys: {fileID: 1014375578788904, guid: 8a733b20d02d6450ebf6f1fdacbd5570,
+    type: 2}
+  dashEffect: {fileID: 1084660703307154, guid: 1d08dd01267f24cdb83492c245e992ec, type: 2}
   foot: {fileID: 0}
 --- !u!114 &114407916608650274
 MonoBehaviour:
