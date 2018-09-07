@@ -1,23 +1,24 @@
 ﻿<Properties StartupConfiguration="{A0F42D86-7FFD-E855-A338-AA268EBE03FD}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StageLeafFall.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CircleRenderer.cs">
     <Files>
-      <File FileName="Assets/InputToungeAction.cs" Line="53" Column="30" />
+      <File FileName="Assets/InputToungeAction.cs" Line="96" Column="41" />
       <File FileName="Assets/ToungeSpriteMgr.cs" Line="33" Column="9" />
-      <File FileName="Assets/PlayerController.cs" Line="79" Column="31" />
+      <File FileName="Assets/PlayerController.cs" Line="84" Column="42" />
       <File FileName="Assets/Scripts/PlayerEnum.cs" Line="8" Column="2" />
-      <File FileName="Assets/Scripts/PlayerInput.cs" Line="1" Column="1" />
       <File FileName="Assets/Foot.cs" Line="7" Column="20" />
-      <File FileName="Assets/ToungeFront.cs" Line="33" Column="21" />
+      <File FileName="Assets/ToungeFront.cs" Line="31" Column="1" />
       <File FileName="Assets/Scripts/LeafSporn.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/LeafFall.cs" Line="1" Column="1" />
       <File FileName="Assets/WallSensor.cs" Line="27" Column="83" />
-      <File FileName="Assets/Scripts/PlayerHitpoint.cs" Line="25" Column="22" />
+      <File FileName="Assets/Scripts/PlayerHitpoint.cs" Line="26" Column="70" />
       <File FileName="Assets/QuitGame.cs" Line="1" Column="1" />
       <File FileName="Assets/PlayerAnimationController.cs" Line="44" Column="11" />
       <File FileName="Assets/ChangeScene.cs" Line="1" Column="1" />
       <File FileName="Assets/DownwardScroll.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/StageLeafFall.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NewBehaviourScript.cs" Line="13" Column="30" />
+      <File FileName="Assets/Scripts/CircleRenderer.cs" Line="6" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
