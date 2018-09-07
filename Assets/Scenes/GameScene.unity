@@ -1149,16 +1149,6 @@ Prefab:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 198909444}
-    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
-        type: 2}
-      propertyPath: toungeSpeed
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114061227723091574, guid: 307108846b6554f4395ac1921b199b95,
-        type: 2}
-      propertyPath: toungeTime
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 307108846b6554f4395ac1921b199b95, type: 2}
   m_IsPrefabAsset: 0

@@ -12,6 +12,7 @@ public class InputToungeAction : MonoBehaviour {
     [SerializeField] private GameObject toungeFrontObj;
     [SerializeField] private PlayerController enemy;
     [SerializeField] private float ikichi = 20f;
+    [SerializeField] private GameObject tongeRangeObj;
     public Coroutine toungeCoroutine = null;
     private Coroutine waitPushCorotuine = null;
     private Rigidbody2D toungeRigid;
@@ -50,7 +51,11 @@ public class InputToungeAction : MonoBehaviour {
 
     private IEnumerator WaitPushCoroutine(){
 
+        tongeRangeObj.SetActive(true);
         toungeBeforeAction();
+        var r = tongeRangeObj.GetComponent<CircleRenderer>();
+        r.xradius = 0f;
+        r.yradius = 0f;
         pushTime = 0f;
         while(pushTime<=1f){
             if (playerType == PlayerEnum.Player1)
@@ -68,15 +73,19 @@ public class InputToungeAction : MonoBehaviour {
                 }
             }
             pushTime += Time.deltaTime;
+
+            r.xradius = 24f * pushTime;
+            r.yradius = 24f * pushTime;
             yield return null;
         }
-        toungeCoroutine = StartCoroutine(ToungeCorotine());
+        toungeCoroutine = StartCoroutine(ToungeCorotine(pushTime));
 
         waitPushCorotuine = null;
-
+        r.ResetPoints();
+        tongeRangeObj.SetActive(false);
     }
 
-    private IEnumerator ToungeCorotine(){
+    private IEnumerator ToungeCorotine(float pushTime){
         if (pushAction != null) pushAction();
         ResetTounge();
         Vector2 inputVec = Vector2.zero;
@@ -84,31 +93,16 @@ public class InputToungeAction : MonoBehaviour {
         toungeFrontObj.GetComponent<ToungeFront>().onHitLeafAction = () =>
         {
             isLeafTouch = true;
-            toungeFrontObj.GetComponent<ToungeFront>().power = 8 + pushTime * 10f;
+            toungeFrontObj.GetComponent<ToungeFront>().chargeTimeNormarized = pushTime;
         };
-        if (playerType == PlayerEnum.Player1)
-        {
-            inputVec = new Vector2(Input.GetAxis("Horizontal1"), -1f*Input.GetAxis("Vertical1"));
-        }else{
-            inputVec = new Vector2(Input.GetAxis("Horizontal2"), -1f*Input.GetAxis("Vertical2"));
-        }
 
-        if(inputVec==Vector2.zero){
-            inputVec = this.GetComponent<Rigidbody2D>().velocity.normalized;
-            if(inputVec==Vector2.zero){
-                inputVec = Vector2.right;
-            }
-
-        }
 
 
         var normVec = (enemy.transform.position - this.transform.position).normalized;
-        if(Vector2.Angle(normVec,inputVec)<ikichi){
-            inputVec = normVec;
-        }
+
         inputVec = normVec;
         float time = 0f;
-        while(time <=toungeTime&&!isLeafTouch){
+        while(time <=toungeTime*pushTime&&!isLeafTouch){
             toungeRigid.transform.Translate(inputVec.normalized * toungeSpeed,Space.Self);
             yield return new  WaitForFixedUpdate();
             time += Time.fixedDeltaTime;
@@ -129,6 +123,6 @@ public class InputToungeAction : MonoBehaviour {
         toungeRigid.velocity = Vector2.zero;
         toungeFrontObj.transform.position = this.transform.position;
         toungeFrontObj.GetComponent<Collider2D>().isTrigger = false;
-        toungeFrontObj.GetComponent<ToungeFront>().power = 2;
+        toungeFrontObj.GetComponent<ToungeFront>().chargeTimeNormarized = 0f;
     }
 }
