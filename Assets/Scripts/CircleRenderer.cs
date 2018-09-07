@@ -47,8 +47,11 @@ public class CircleRenderer : MonoBehaviour {
     }
 
     public void ResetPoints(){
-        line.positionCount = 0;
-        line.positionCount = segments + 1;
+        if (line != null)
+        {
+            line.positionCount = 0;
+            line.positionCount = segments + 1;
+        }
     }
     private void FixedUpdate()
     {

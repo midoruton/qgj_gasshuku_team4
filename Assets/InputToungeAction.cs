@@ -14,7 +14,7 @@ public class InputToungeAction : MonoBehaviour
     [SerializeField] private PlayerController enemy;
     [SerializeField] private float ikichi = 20f;
     [SerializeField] private GameObject tongeRangeObj;
-
+    [SerializeField] private AudioClip clip;
     public Coroutine toungeCoroutine = null;
     private Coroutine waitPushCorotuine = null;
     private Rigidbody2D toungeRigid;
@@ -25,7 +25,10 @@ public class InputToungeAction : MonoBehaviour
     public Action toungeBeforeAction;
     public Action stopChargeAction;
     public void ResetCharge(){
-        StopCoroutine(waitPushCorotuine);
+        if (waitPushCorotuine != null)
+        {
+            StopCoroutine(waitPushCorotuine);
+        }
         waitPushCorotuine = null;
         pushTime = 0f;
         stopChargeAction();
@@ -102,6 +105,9 @@ public class InputToungeAction : MonoBehaviour
     }
 
     private IEnumerator ToungeCorotine(float pushTime){
+        var a = this.transform.Find("Tounge").GetComponent<AudioSource>();
+        a.clip = clip;
+        a.Play();
         if (pushAction != null) pushAction();
         ResetTounge();
         Vector2 inputVec = Vector2.zero;
