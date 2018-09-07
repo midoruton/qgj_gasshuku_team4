@@ -11,7 +11,7 @@ public class ResultA : MonoBehaviour {
 	void Start ()
     {
         _result = GetComponent<Text>();
-        _result.text = ResultCounter.GetFrogBResult().ToString();
+        _result.text = ResultCounter.GetFrogAResult().ToString();
 	}
 	
 	// Update is called once per frame
